@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  users-api:
+    build: . # O ponto '.' significa "construa a partir desta pasta"
+    container_name: meupet_users_api
+    restart: always
+    ports:
+      - "8082:8082"
+    networks:
+      - meupet-network
+    environment:
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://mysql:3306/meupet
+      ANIMALS_API_URL: http://animals-api:8083
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/q/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  meupet-network:
+    external: true
