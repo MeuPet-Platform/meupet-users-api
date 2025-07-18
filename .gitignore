@@ -14,3 +14,5 @@ target/
 .idea/
 
 .DS_Store
+
+Dockerfile

@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 WORKDIR /work/
 COPY --from=build /usr/src/app/target/quarkus-app/ /work/
 
-EXPOSE 8082
+EXPOSE 10000
 USER 1001
 
-CMD ["java", "-Dquarkus.http.host=0.0.0.0", "-jar", "quarkus-run.jar"]
+CMD ["java", "-Dquarkus.http.host=0.0.0.0", "-Dquarkus.http.port=10000", "-jar", "quarkus-run.jar"]
