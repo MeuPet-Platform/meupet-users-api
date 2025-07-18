@@ -1,1 +1,1 @@
-web: java -Dquarkus.http.host=0.0.0.0 -Dquarkus.datasource.jdbc.url=${JDBC_DATABASE_URL} -Dquarkus.datasource.username=${DB_USER} -Dquarkus.datasource.password=${DB_PASS} -jar target/quarkus-app/quarkus-run.jar
+web: java -Dquarkus.http.host=0.0.0.0 -jar target/quarkus-app/quarkus-run.jar
